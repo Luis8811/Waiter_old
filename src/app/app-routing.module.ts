@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { LoginPage } from './login/login.page';
+import {ProductsPage} from './products/products.page';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'login',
     pathMatch: 'full'
   },
   {
@@ -14,7 +16,13 @@ const routes: Routes = [
   {
     path: 'list',
     loadChildren: './list/list.module#ListPageModule'
-  }
+  },
+  { path: 'login', loadChildren: './login/login.module#LoginPageModule' },
+  { path: 'products',
+    loadChildren: './products/products.module#ProductsPageModule', pathMatch: 'full'},
+  { path: 'clients', loadChildren: './clients/clients.module#ClientsPageModule' },
+  { path: 'requests', loadChildren: './requests/requests.module#RequestsPageModule' },
+  { path: 'main', loadChildren: './main/main.module#MainPageModule' }
 ];
 
 @NgModule({

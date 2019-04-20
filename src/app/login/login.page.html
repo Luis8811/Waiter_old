@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Restaurateur Waiter</ion-title>
+  </ion-toolbar>
+  <!--
+  <ion-menu side="start" menuId="custom">
+    <ion-header>
+      <ion-toolbar color="tertiary">
+        <ion-title>Opciones</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-list>
+        <ion-item>Menu Item1</ion-item>
+        <ion-item>Menu Item2</ion-item>
+        <ion-item>Menu Item3</ion-item>
+        <ion-item>Menu Item4</ion-item>
+        <ion-item>Menu Item5</ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+-->
+</ion-header>
+
+<ion-content>
+    <ion-card>
+        <ion-card-header>
+          <ion-card-title>Acceso</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-input placeholder="Usuario" [(ngModel)]="user"></ion-input>
+          <ion-input placeholder="Clave" type="password" [(ngModel)]="password"></ion-input>
+          <!--
+          <ion-item>
+            <ion-button expand="full">Full Button</ion-button>
+          </ion-item>  -->
+        </ion-card-content>
+        
+      </ion-card>
+      <ion-button expand="full" (click)="login()">OK</ion-button>
+</ion-content>
