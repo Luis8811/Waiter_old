@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {RestaurateurService} from '../restaurateur.service';
+import {Product} from '../models/product/Product';
 
 @Component({
   selector: 'app-products',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductsPage implements OnInit {
 
-  constructor() { }
+  constructor(private restaurateurService: RestaurateurService) { }
+  public products: Product[];
 
   ngOnInit() {
+    this.restaurateurService.getProducts().subscribe(data => {
+    console.log(data);
+    this.products = data;
+    console.log(this.products);
+  });
   }
 
 }
