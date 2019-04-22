@@ -22,7 +22,8 @@ const routes: Routes = [
     loadChildren: './products/products.module#ProductsPageModule', pathMatch: 'full'},
   { path: 'clients', loadChildren: './clients/clients.module#ClientsPageModule' },
   { path: 'requests', loadChildren: './requests/requests.module#RequestsPageModule' },
-  { path: 'main', loadChildren: './main/main.module#MainPageModule' }
+  { path: 'main', loadChildren: './main/main.module#MainPageModule' },
+  { path: 'list-of-clients', loadChildren: './list-of-clients/list-of-clients.module#ListOfClientsPageModule' }
 ];
 
 @NgModule({
