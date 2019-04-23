@@ -17,4 +17,8 @@ export class ClientsPage implements OnInit {
     this.router.navigate(['/list-of-clients']);
   }
 
+  navigateToAddNewClient() {
+    this.router.navigate(['/add-client']);
+  }
+
 }

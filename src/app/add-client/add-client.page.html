@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons slot="start">
+          <ion-back-button defaultHref="/clients">
+          </ion-back-button>
+      </ion-buttons>
+    <ion-title>Registrar nuevo cliente</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-input type="text" placeholder="Nombre" required="true" clearInput="true" [(ngModel)]="clientToInsert.name"></ion-input>
+    <ion-select placeholder="Sexo" [(ngModel)]="clientToInsert.sex">
+        <ion-select-option value="F">Femenino</ion-select-option>
+        <ion-select-option value="M">Masculino</ion-select-option>
+    </ion-select>
+    <ion-item>
+        <ion-label>Fecha de nacimiento</ion-label>
+        <!-- FIXME Arreglar el rango de fechas a seleccionar -->
+        <ion-datetime displayFormat="MM DD YY" placeholder="Seleccione la fecha de nacimiento"  min="1950" max="2020" [(ngModel)]="clientToInsert.birthdate"></ion-datetime>
+      </ion-item>
+    <ion-input type="email" required="true" placeholder="email" clearInput="true" [(ngModel)]="clientToInsert.email"></ion-input>
+    <ion-input type="number"  placeholder="teléfono" clearInput="true" [(ngModel)]="clientToInsert.telephone"></ion-input>
+    <ion-button expand="full" (click)="insertClient()">Registrar cliente</ion-button>
+  
+
+</ion-content>
