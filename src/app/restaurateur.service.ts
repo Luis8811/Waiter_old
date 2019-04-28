@@ -63,4 +63,22 @@ export class RestaurateurService {
       catchError(this.handleError<Client>('insertClient'))
     );
   }
+
+  // TODO Implementar
+  // Returns the requests of the client
+  getRequestsOfClient() {}
+
+  // Find clients by email
+  findClientByEmail(emailOfClient: string): Observable<Client> {
+    const httpOptions = {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+    };
+    const data = {
+      'email': emailOfClient
+    };
+    return this.http.post('http://localhost:3000/api/findClientByEmail', data, httpOptions).pipe(
+      tap((newClient: Client) => this.log('Results of searching clients by email')),
+      catchError(this.handleError<Client>('findClientByEmail'))
+    );
+  }
 }
