@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
 import {Client} from './models/client/Client';
 import { catchError, map, tap } from 'rxjs/operators';
 import { of } from 'rxjs';
+import {Request} from './models/request/Request';
 
 @Injectable({
   providedIn: 'root'
@@ -64,21 +65,25 @@ export class RestaurateurService {
     );
   }
 
-  // TODO Implementar
   // Returns the requests of the client
-  getRequestsOfClient() {}
+  getRequestsOfClient(clientId: string): Observable<Request[]> {
+    const httpOptions = {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+    };
+    const data = {
+      'client_id': clientId
+    };
+    return this.http.post('http://localhost:3000/api/requestsOfClient', data, httpOptions).pipe(map((res) => <Request[]> res));
+  }
 
-  // Find clients by email
-  findClientByEmail(emailOfClient: string): Observable<Client> {
+  // Find client by email
+  findClientByEmail(emailOfClient: string): Observable<Client[]> {
     const httpOptions = {
       headers: new HttpHeaders({ 'Content-Type': 'application/json' })
     };
     const data = {
       'email': emailOfClient
     };
-    return this.http.post('http://localhost:3000/api/findClientByEmail', data, httpOptions).pipe(
-      tap((newClient: Client) => this.log('Results of searching clients by email')),
-      catchError(this.handleError<Client>('findClientByEmail'))
-    );
+    return this.http.post('http://localhost:3000/api/findClientByEmail', data, httpOptions).pipe(map((res) => <Client[]> res));
   }
 }
