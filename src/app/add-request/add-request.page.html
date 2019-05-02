@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons slot="start">
+          <ion-back-button defaultHref="/requests">
+    
+          </ion-back-button>
+        </ion-buttons>
+    <ion-title>Agregar pedido</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    
+        <ion-select multiple="true" cancelText="Cancelar" okText="OK" [(ngModel)]="selectedOptions" (ionChange)="onChange(selectedOptions)">
+          <ion-select-option  *ngFor="let currentProduct of availableProducts" value="{{currentProduct._id}}">{{ currentProduct.name}} {{ currentProduct.price }}</ion-select-option>
+        </ion-select>
+      
+      <ion-input placeholder="Email del cliente" type="email" [(ngModel)]="emailOfClient"></ion-input>
+      <ion-input placeholder="Descripción del pedido" [(ngModel)]="descriptionOfRequest"></ion-input>
+      <ion-button expand="full" (click)="makeRequest()">Crear pedido</ion-button>
+</ion-content>

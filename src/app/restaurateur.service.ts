@@ -7,6 +7,7 @@ import {Client} from './models/client/Client';
 import { catchError, map, tap } from 'rxjs/operators';
 import { of } from 'rxjs';
 import {Request} from './models/request/Request';
+import {FactRequest} from './models/request/FactRequest';
 
 @Injectable({
   providedIn: 'root'
@@ -86,4 +87,20 @@ export class RestaurateurService {
     };
     return this.http.post('http://localhost:3000/api/findClientByEmail', data, httpOptions).pipe(map((res) => <Client[]> res));
   }
+
+       // TODO Mostrar mensajes al usuario de si se ha insertado o no la solicitud
+       insertRequest(client: Client, request: Request): Observable<FactRequest> {
+        const dataOfNewRequest = {
+          'client_id': client._id,
+          'description': request.description,
+          'products': request.products
+        };
+        const httpOptions = {
+          headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+        };
+        return this.http.post('http://localhost:3000/api/newRequest', dataOfNewRequest, httpOptions).pipe(
+          tap((newRequest: FactRequest) => this.log('A request was created')),
+          catchError(this.handleError<FactRequest>('insertRequest'))
+        );
+      }
 }

@@ -27,7 +27,8 @@ const routes: Routes = [
   { path: 'add-client', loadChildren: './add-client/add-client.module#AddClientPageModule' },
   { path: 'requests-of-client', loadChildren: './requests-of-client/requests-of-client.module#RequestsOfClientPageModule' },
   { path: 'details-of-request-of-client',
-   loadChildren: './details-of-request-of-client/details-of-request-of-client.module#DetailsOfRequestOfClientPageModule' }
+   loadChildren: './details-of-request-of-client/details-of-request-of-client.module#DetailsOfRequestOfClientPageModule' },
+  { path: 'add-request', loadChildren: './add-request/add-request.module#AddRequestPageModule' }
 ];
 
 @NgModule({
