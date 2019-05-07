@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons slot="start">
+          <ion-back-button defaultHref="/requests">
+          </ion-back-button>
+        </ion-buttons>
+    <ion-title>Pedidos abiertos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+ <!--  <ion-refresher  slot="fixed" (ionRefresh)="doRefresh($event)" (ionPull)="ionPull($event)" 
+  (ionStart)="ionStart($event)">
+      <ion-refresher-content
+      pullingIcon="arrow-dropdown"
+      pullingText="Pull to refresh"
+      refreshingSpinner="circles"
+      refreshingText="Refreshing..."> -->
+    <ion-list>
+        <ion-item *ngFor="let currentOpenRequest of requestsExtended">
+          <!-- FIXME Intentar hacer la agregación con mongo DB y luego probarlo con mongoose y verlo con un servicio tomando el json completo -->
+          <ion-label *ngIf=" currentOpenRequest != null"> Fecha y hora: {{currentOpenRequest.date}}:{{currentOpenRequest.time}} Origen: {{currentOpenRequest.request_id.origin}} Cliente: {{currentOpenRequest.client_id.name}} ({{currentOpenRequest.client_id.sex}})</ion-label>
+          
+        </ion-item>
+      </ion-list>
+     <!--  </ion-refresher-content>
+    </ion-refresher> -->
+</ion-content>

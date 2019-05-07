@@ -4,4 +4,5 @@ date: string;
 time: string;
 client_id: string;
 request_id: string;
+state: string;
 }

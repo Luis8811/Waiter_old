@@ -17,4 +17,8 @@ export class RequestsPage implements OnInit {
     this.router.navigate(['/add-request']);
   }
 
+  navigateToListOfOpenedRequests() {
+    this.router.navigate(['/open-requests']);
+  }
+
 }

@@ -28,7 +28,8 @@ const routes: Routes = [
   { path: 'requests-of-client', loadChildren: './requests-of-client/requests-of-client.module#RequestsOfClientPageModule' },
   { path: 'details-of-request-of-client',
    loadChildren: './details-of-request-of-client/details-of-request-of-client.module#DetailsOfRequestOfClientPageModule' },
-  { path: 'add-request', loadChildren: './add-request/add-request.module#AddRequestPageModule' }
+  { path: 'add-request', loadChildren: './add-request/add-request.module#AddRequestPageModule' },
+  { path: 'open-requests', loadChildren: './open-requests/open-requests.module#OpenRequestsPageModule' }
 ];
 
 @NgModule({

@@ -90,9 +90,8 @@ export class AddRequestPage implements OnInit {
     return products;
   }
 
-  // FIXME Intentar usar la función split(',')
+  // Returns an array of selected products
   public getArrayOfSelectedProducts (products: string) {
-    // return products.split(',');
     return products.toString().split(',');
   }
 

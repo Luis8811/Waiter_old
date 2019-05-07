@@ -8,6 +8,7 @@ import { catchError, map, tap } from 'rxjs/operators';
 import { of } from 'rxjs';
 import {Request} from './models/request/Request';
 import {FactRequest} from './models/request/FactRequest';
+import {RequestExtended} from './models/request/RequestExtended';
 
 @Injectable({
   providedIn: 'root'
@@ -102,5 +103,27 @@ export class RestaurateurService {
           tap((newRequest: FactRequest) => this.log('A request was created')),
           catchError(this.handleError<FactRequest>('insertRequest'))
         );
+      }
+
+      // Returns all the fact requests with opened state
+      getOpenedRequests(): Observable<FactRequest[]> {
+        return this.http.get('http://localhost:3000/api/openedRequests').pipe(map((res) => <any[]> res));
+      }
+
+      // Returns all the opened requests (Both Fact Request and Request have the field state)
+      getDataOfOpenedRequests(): Observable<Request[]> {
+        return this.http.get('http://localhost:3000/api/dataOfOpenedRequests').pipe(map((res) => <any[]> res));
+      }
+
+      // Returns the request with the specified id
+      getRequestById(id: string): Observable<Request> {
+        let url = 'http://localhost:3000/api/requests/';
+        url += id;
+        return this.http.get(url).pipe(map((res) => <Request> res));
+      }
+
+      // Returns the opened requests extended
+      getAllODatafOpenedFactRequests(): Observable<RequestExtended[]> {
+        return this.http.get('http://localhost:3000/api/allDataOfOpenedFactRequests').pipe(map((res) => <any[]> res));
       }
 }

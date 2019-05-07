@@ -1,5 +1,4 @@
 export class Client {
-// FIXME Hacer que se puedan leer y modificar estas propiedades
   public  _id: string;
   public name: string;
   public sex: string;
