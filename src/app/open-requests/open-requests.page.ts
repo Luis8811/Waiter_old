@@ -5,6 +5,7 @@ import {Request} from '../models/request/Request';
 import {Product} from '../models/product/Product';
 import {FactRequest} from '../models/request/FactRequest';
 import {RequestExtended} from '../models/request/RequestExtended';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-open-requests',
@@ -15,9 +16,10 @@ export class OpenRequestsPage implements OnInit {
   public openedFactRequests: FactRequest[];
   public openedRequests: Request[];
   public requestsExtended: RequestExtended[];
+  public currentRequestIdSelected: any;
 
 
-  constructor(private restaurateurService: RestaurateurService) {
+  constructor(private restaurateurService: RestaurateurService, private router: Router) {
     this.openedRequests = new Array();
     this.openedFactRequests = new Array();
     this.requestsExtended = new Array();
@@ -77,6 +79,11 @@ export class OpenRequestsPage implements OnInit {
     return obtainedRequest;
   }
 
+  navigateToDetailsOfRequest() {
+    this.router.navigate(['/details-of-request-of-client']);
+    console.log('El id de la solicitud seleccionada es: ');
+  }
+
  /*  doRefresh(event) {
     console.log('Begin async operation');
 
@@ -95,5 +102,11 @@ export class OpenRequestsPage implements OnInit {
     console.log('ionStart Event Triggered!');
   }
  */
+
+ updateSelectedRequest(valor) {
+   this.currentRequestIdSelected = valor;
+   console.log('El valor recibido es: ' + this.currentRequestIdSelected);
+   this.router.navigate(['/details-of-request-of-client', this.currentRequestIdSelected]);
+ }
 
 }

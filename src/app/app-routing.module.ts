@@ -26,7 +26,7 @@ const routes: Routes = [
   { path: 'list-of-clients', loadChildren: './list-of-clients/list-of-clients.module#ListOfClientsPageModule' },
   { path: 'add-client', loadChildren: './add-client/add-client.module#AddClientPageModule' },
   { path: 'requests-of-client', loadChildren: './requests-of-client/requests-of-client.module#RequestsOfClientPageModule' },
-  { path: 'details-of-request-of-client',
+  { path: 'details-of-request-of-client/:id',
    loadChildren: './details-of-request-of-client/details-of-request-of-client.module#DetailsOfRequestOfClientPageModule' },
   { path: 'add-request', loadChildren: './add-request/add-request.module#AddRequestPageModule' },
   { path: 'open-requests', loadChildren: './open-requests/open-requests.module#OpenRequestsPageModule' }

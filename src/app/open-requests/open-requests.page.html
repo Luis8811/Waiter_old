@@ -35,7 +35,7 @@
              </ion-label>
            </ion-item>
            <ion-item>
-              <ion-button color="primary">Cerrar pedido</ion-button>
+              <ion-button color="primary" (click)="updateSelectedRequest(currentOpenRequest.request_id._id)">Cerrar pedido</ion-button>
            </ion-item>
            <ion-item>
               <ion-button color="primary">Cancelar pedido</ion-button>
