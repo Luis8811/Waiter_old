@@ -109,4 +109,13 @@ export class OpenRequestsPage implements OnInit {
    this.router.navigate(['/details-of-request-of-client', this.currentRequestIdSelected]);
  }
 
+ cancelRequest(requestId) {
+   this.currentRequestIdSelected = requestId;
+   this.restaurateurService.cancelRequest(this.currentRequestIdSelected).subscribe(data => {
+     console.log('Canceled request');
+     console.log(data);
+     this.loadAllDataAboutFactRequests();
+   });
+ }
+
 }

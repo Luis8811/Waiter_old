@@ -126,4 +126,18 @@ export class RestaurateurService {
       getAllODatafOpenedFactRequests(): Observable<RequestExtended[]> {
         return this.http.get('http://localhost:3000/api/allDataOfOpenedFactRequests').pipe(map((res) => <any[]> res));
       }
+
+      // Cancels a request
+      cancelRequest(requestId: string): Observable<FactRequest> {
+        const dataOfRequest = {
+          'request_id': requestId
+        };
+        const httpOptions = {
+          headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+        };
+        return this.http.put('http://localhost:3000/api/cancelRequest', dataOfRequest, httpOptions).pipe(
+          tap((requestCanceled: FactRequest) => this.log('The request was canceled.')),
+          catchError(this.handleError<FactRequest>('cancelRequest'))
+        );
+      }
 }
