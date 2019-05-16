@@ -10,7 +10,26 @@ import { DetailsOfRequestOfClientPage } from './details-of-request-of-client.pag
 const routes: Routes = [
   {
     path: '',
-    component: DetailsOfRequestOfClientPage
+    component: DetailsOfRequestOfClientPage,
+    children: [{
+      path: 'tabProducts/:id',
+      loadChildren: '../tab-product/tab-product.module#TabProductPageModule'
+    }, /* {
+      path: 'tabOpenedRequests',
+      loadChildren: '../open-requests/open-requests.module#OpenRequestsPageModule'
+    }, */ {
+      path: 'tabInvoice/:id',
+      loadChildren: '../tab-invoice/tab-invoice.module#TabInvoicePageModule'
+    }, {
+      path: 'tabClient/:id',
+      loadChildren: '../tab-client/tab-client.module#TabClientPageModule'
+    }, {
+      path: 'tabComplaints/:id',
+      loadChildren: '../tab-complaints/tab-complaints.module#TabComplaintsPageModule'
+    }/*, {
+      path: 'tabCloseRequest/:id',
+      loadChildren: '../tab-close/tab-close.module#TabClosePageModule'
+    }*/]
   }
 ];
 

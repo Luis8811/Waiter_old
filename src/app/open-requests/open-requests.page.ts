@@ -106,7 +106,11 @@ export class OpenRequestsPage implements OnInit {
  updateSelectedRequest(valor) {
    this.currentRequestIdSelected = valor;
    console.log('El valor recibido es: ' + this.currentRequestIdSelected);
-   this.router.navigate(['/details-of-request-of-client', this.currentRequestIdSelected]);
+   let routeToNavigate = '/details-of-request-of-client/';
+   routeToNavigate += this.currentRequestIdSelected;
+   routeToNavigate += '/tabProducts/';
+   // routeToNavigate += this.currentRequestIdSelected;
+   this.router.navigate([routeToNavigate, this.currentRequestIdSelected]);
  }
 
  cancelRequest(requestId) {

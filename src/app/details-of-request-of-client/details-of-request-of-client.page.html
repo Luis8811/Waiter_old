@@ -1,4 +1,4 @@
-<ion-header>
+<!-- <ion-header>
   <ion-toolbar>
       <ion-buttons slot="start">
           <ion-back-button defaultHref="/open-requests">
@@ -6,8 +6,56 @@
         </ion-buttons>
     <ion-title>Detalles de solicitud: {{requestId}}</ion-title>
   </ion-toolbar>
-</ion-header>
+</ion-header> -->
 
-<ion-content>
 
-</ion-content>
+<!--     <ion-tab tab="productsTab">
+      
+    </ion-tab>
+
+    <ion-tab tab="invoiceTab">
+        
+    </ion-tab> -->
+    <ion-tabs>
+        <!--  <ion-tab tab="login">Prod
+            
+        </ion-tab>
+        <ion-tab tab="home">Importe
+            
+        </ion-tab>  -->
+      
+        <ion-tab-bar slot="bottom">
+
+<!--             <ion-tab-button tab="tabOpenedRequests">
+              <ion-label>Go back</ion-label>
+              <ion-icon name="cart"></ion-icon>
+            </ion-tab-button> -->
+
+          <ion-tab-button tab="tabProducts/{{requestId}}">
+            <ion-label>Productos</ion-label>
+            <ion-icon name="cart"></ion-icon>
+          </ion-tab-button>
+      
+          <ion-tab-button tab="tabInvoice/{{requestId}}">
+            <ion-label>Importe</ion-label>
+            <ion-icon name="logo-euro"></ion-icon>
+          </ion-tab-button>
+
+          <ion-tab-button tab="tabClient/{{requestId}}">
+              <ion-label>Cliente</ion-label>
+              <ion-icon name="person"></ion-icon>
+          </ion-tab-button>
+
+          <ion-tab-button tab="tabComplaints/{{requestId}}">
+              <ion-label>Reclamaciones</ion-label>
+              <ion-icon name="warning"></ion-icon>
+          </ion-tab-button>
+<!-- 
+          <ion-tab-button tab="tabCloseRequest/{{requestId}}">
+              <ion-label>Cerrar pedido</ion-label>
+              <ion-icon name="logo-euro"></ion-icon>
+          </ion-tab-button> -->
+        </ion-tab-bar>
+      </ion-tabs>
+
+

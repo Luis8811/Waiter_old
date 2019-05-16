@@ -29,7 +29,13 @@ const routes: Routes = [
   { path: 'details-of-request-of-client/:id',
    loadChildren: './details-of-request-of-client/details-of-request-of-client.module#DetailsOfRequestOfClientPageModule' },
   { path: 'add-request', loadChildren: './add-request/add-request.module#AddRequestPageModule' },
-  { path: 'open-requests', loadChildren: './open-requests/open-requests.module#OpenRequestsPageModule' }
+  { path: 'open-requests', loadChildren: './open-requests/open-requests.module#OpenRequestsPageModule' },
+  /* { path: 'products', loadChildren: './details-of-requests-of-client/products/products.module#ProductsPageModule' }, */
+  { path: 'tab-product/:id', loadChildren: './tab-product/tab-product.module#TabProductPageModule' },
+  { path: 'tab-client', loadChildren: './tab-client/tab-client.module#TabClientPageModule' },
+  { path: 'tab-invoice', loadChildren: './tab-invoice/tab-invoice.module#TabInvoicePageModule' },
+  { path: 'tab-complaints', loadChildren: './tab-complaints/tab-complaints.module#TabComplaintsPageModule' }/*,
+  { path: 'tab-close', loadChildren: './tab-close/tab-close.module#TabClosePageModule' }*/
 ];
 
 @NgModule({
